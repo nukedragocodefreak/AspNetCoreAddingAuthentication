@@ -37,8 +37,12 @@ namespace WishList.Controllers
         [AllowAnonymous]
         public IActionResult Register(RegisterViewModel register)
         {
+            if(!ModelState.IsValid)
+            {
+                return View("Register", register);
+            }
             return RedirectToAction("Index", "Home");
-                                       
+
         }
     }
 }
